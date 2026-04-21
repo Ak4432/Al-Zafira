@@ -46,10 +46,9 @@
             text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s;
             white-space: nowrap;
         }
-        .pill-nav-link:hover { color: #f1c97d; }
         .pill-nav-link.active { color: #f1c97d; }
 
-        /* Profile Card */
+        /* Profile Card - ULTRA SUBTLE SHADOWS */
         .profile-card-container { perspective: 1200px; width: 100%; max-width: 480px; aspect-ratio: 4/5.5; cursor: pointer; margin: 0 auto; }
         .profile-card {
             width: 100%; height: 100%; transition: transform 0.15s ease-out; transform-style: preserve-3d;
@@ -62,8 +61,8 @@
             -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 95%);
         }
         .profile-info { position: absolute; top: 6%; left: 0; width: 100%; z-index: 10; text-align: center; transform: translateZ(60px); }
-        .profile-info h4 { text-shadow: none !important; color: white; } 
-        .profile-info p { text-shadow: none !important; color: #f1c97d; }
+        .profile-info h4 { color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.15); } 
+        .profile-info p { color: #f1c97d; text-shadow: 0 1px 2px rgba(0,0,0,0.15); }
         
         .profile-glass-card {
             position: absolute; bottom: 8%; left: 5%; right: 5%; background: rgba(255, 255, 255, 0.03);
@@ -73,7 +72,7 @@
         }
         .status-dot { width: 8px; height: 8px; background: #10B981; border-radius: 50%; display: inline-block; box-shadow: 0 0 10px #10B981; margin-right: 6px; }
 
-        /* Service Squares */
+        /* Compact Growth Service squares */
         .service-square { 
             transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1); 
             text-align: center; border-radius: 24px; padding: 1.5rem 1rem; 
@@ -85,23 +84,14 @@
             border: 1px solid rgba(241, 201, 125, 0.12); 
             padding: 6px 14px; font-size: 0.65rem; border-radius: 99px; 
             transition: all 0.3s; background: rgba(255,255,255,0.02); 
-            white-space: nowrap; width: fit-content; color: #d0c5af; margin-bottom: 4px;
+            white-space: nowrap; width: fit-content; color: #d0c5af; margin-bottom: 5px;
         }
         .service-tag:hover { background: #f1c97d; color: #131313; border-color: #f1c97d; transform: scale(1.05); }
 
-        /* Booking Overlay */
+        /* Booking Overlay Reduction */
         #booking-overlay { position: fixed; inset: 0; background: rgba(10, 10, 10, 0.97); z-index: 200; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.4s ease; backdrop-filter: blur(12px); }
         #booking-overlay.active { opacity: 1; visibility: visible; }
         .booking-card { background: #1c1b1b; border: 1px solid rgba(241, 201, 125, 0.2); border-radius: 24px; width: 90%; max-width: 360px; padding: 24px; box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
-
-        /* Contact Form */
-        .form-border-glow { position: relative; background: #1c1b1b; padding: 2px; overflow: hidden; border-radius: 30px; z-index: 0; }
-        .form-border-glow::before {
-            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: conic-gradient(from 0deg, #c084fc, #f472b6, #38bdf8, #c084fc);
-            animation: rotate-border-glow 4s linear infinite; z-index: -2;
-        }
-        .form-border-glow::after { content: ''; position: absolute; inset: 1px; background: #1c1b1b; border-radius: 29px; z-index: -1; }
 
         /* Scroll Stack */
         .stack-card { 
@@ -112,8 +102,16 @@
         }
         @media (min-width: 768px) { .stack-card { height: 60vh; top: 15vh; border-radius: 40px; } }
 
+        .form-border-glow { position: relative; background: #1c1b1b; padding: 2px; overflow: hidden; border-radius: 30px; z-index: 0; }
+        .form-border-glow::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: conic-gradient(from 0deg, #c084fc, #f472b6, #38bdf8, #c084fc);
+            animation: rotate-border-glow 4s linear infinite; z-index: -2;
+        }
+        .form-border-glow::after { content: ''; position: absolute; inset: 1px; background: #1c1b1b; border-radius: 29px; z-index: -1; }
+
         .follow-us-box { border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 20px; padding: 20px; background: rgba(255, 255, 255, 0.02); box-shadow: 0 0 20px rgba(56, 189, 248, 0.1); }
-        .custom-checkbox { appearance: none; width: 18px; height: 18px; border: 1px solid rgba(241, 201, 125, 0.3); background: transparent; border-radius: 4px; cursor: pointer; position: relative; }
+        .custom-checkbox { appearance: none; width: 18px; height: 18px; border: 1px solid rgba(241, 201, 125, 0.3); background: transparent; border-radius: 4px; cursor: pointer; position: relative; transition: all 0.3s; }
         .custom-checkbox:checked { background: #f1c97d; border-color: #f1c97d; }
         .custom-checkbox:checked::after { content: '✓'; font-size: 12px; color: #131313; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-weight: bold; }
 
@@ -124,7 +122,7 @@
         #prism-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
         @keyframes rotate-border-glow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .review-track { display: flex; width: max-content; animation: marquee 16s linear infinite; }
+        .review-track { display: flex; width: max-content; animation: marquee 18s linear infinite; }
         .brand-highlight { color: #f1c97d; font-style: italic; }
     </style>
 </head>
@@ -132,10 +130,10 @@
 
 <canvas id="splash-cursor-canvas"></canvas>
 
-<!-- Reduced Booking Overlay -->
+<!-- Booking Overlay -->
 <div id="booking-overlay">
     <button onclick="toggleBooking()" class="absolute top-6 right-6 text-white hover:text-primary transition-colors"><span class="material-symbols-outlined text-3xl">close</span></button>
-    <div class="booking-card text-center">
+    <div class="booking-card text-center text-left">
         <div class="mb-5">
             <h2 class="serif-display text-xl font-bold text-white mb-1" data-i18n="booking_title">Book Your Growth Call</h2>
             <p class="text-[10px] text-on-surface-variant uppercase tracking-widest" data-i18n="booking_subtitle">Transform your business in 30 minutes.</p>
@@ -153,7 +151,7 @@
     </div>
 </div>
 
-<!-- Mobile Menu Overlay -->
+<!-- Mobile Nav -->
 <div id="mobile-overlay">
     <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-white"><span class="material-symbols-outlined text-4xl">close</span></button>
     <div class="flex flex-col gap-10 text-center">
@@ -165,7 +163,6 @@
     </div>
 </div>
 
-<!-- Navigation -->
 <nav class="fixed top-0 w-full z-50 glass-nav border-b border-white/5">
     <div class="flex items-center justify-between px-6 md:px-12 py-3 max-w-[1920px] mx-auto">
         <div class="flex items-center">
@@ -182,7 +179,7 @@
             </div>
         </div>
         <div class="absolute left-1/2 -translate-x-1/2">
-            <a href="#" class="block hover:scale-105 transition-transform"><img src="https://res.cloudinary.com/dutt5ibzr/image/upload/v1776333065/tazzau7jsvjbqvsfext3.png" alt="AL ZAFIRA" class="w-[80px] md:w-[100px] h-auto object-contain"></a>
+            <a href="#" class="block hover:scale-105 transition-transform"><img src="https://res.cloudinary.com/dutt5ibzr/image/upload/v1776333065/tazzau7jsvjbqvsfext3.png" alt="AL ZAFIRA" class="w-[75px] md:w-[95px] h-auto object-contain"></a>
         </div>
         <div class="relative group">
             <button class="text-on-surface-variant hover:text-white flex items-center gap-2 py-2 font-label text-[10px] uppercase tracking-[0.2em]">
@@ -206,7 +203,7 @@
         <div class="absolute inset-0 z-[1] bg-gradient-to-b from-transparent via-surface/40 to-surface"></div>
         <div class="relative z-10 max-w-4xl">
             <p class="label-caps text-primary mb-5 tracking-[0.4em] text-[9px] md:text-xs font-bold animate-pulse uppercase" data-i18n="hero_badge">Business solutions built to last</p>
-            <h1 class="serif-display text-3xl sm:text-5xl md:text-7xl font-bold leading-tight mb-6 tracking-tight text-white" data-i18n="hero_title">Install your premium personal brand & content system</h1>
+            <h1 class="serif-display text-3xl sm:text-5xl md:text-8xl font-bold leading-tight mb-6 tracking-tight text-white" data-i18n="hero_title">Install your premium personal brand & content system</h1>
             <p class="serif-display text-base md:text-2xl italic text-on-surface-variant max-w-xl mx-auto mb-10" data-i18n="hero_subtitle">Where average brands become top tier</p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button onclick="toggleBooking()" class="gold-gradient text-on-primary px-8 py-4 md:px-10 md:py-5 font-bold text-[11px] uppercase tracking-widest hover:scale-105 shadow-lg w-full sm:w-auto" data-i18n="btn_growth">Book your growth call</button>
@@ -222,7 +219,7 @@
                 <div class="profile-card" id="profileCard">
                     <img src="https://res.cloudinary.com/dajjun43n/image/upload/v1776491612/xy5t1d5owc7mszhetee3.jpg" class="profile-card-img" alt="Aashik">
                     <div class="profile-info">
-                        <h4 class="serif-display text-4xl md:text-5xl text-black font-bold mb-1 shadow-black" data-i18n="profile_name">Aashik</h4>
+                        <h4 class="serif-display text-4xl md:text-5xl text-white font-bold mb-1 shadow-black" data-i18n="profile_name">Aashik</h4>
                         <p class="label-caps text-[10px] tracking-[0.3em] text-primary" data-i18n="profile_title">digital creator</p>
                     </div>
                     <div class="profile-glass-card shadow-2xl">
@@ -241,7 +238,7 @@
 
             <div>
                 <h2 class="label-caps text-primary mb-4 text-xs md:text-sm font-bold uppercase" data-i18n="about_greeting">HI STRANGER!</h2>
-                <h3 class="serif-display text-3xl md:text-5xl mb-6 leading-tight text-white"><span data-i18n="about_title_pre">Here's what you get inside the</span> <span class="brand-highlight italic">AL ZAFIRA</span></h3>
+                <h3 class="serif-display text-4xl md:text-6xl mb-6 leading-tight text-white font-bold tracking-tight"><span data-i18n="about_title_pre">Here's what you get inside the</span> <span class="brand-highlight italic">AL ZAFIRA</span></h3>
                 <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed mb-8" data-i18n="about_desc">We solve growth challenges with creative precision. I specialize in transforming brands and startups with digital strategies that deliver results on time without busy.</p>
                 <div class="grid grid-cols-1 gap-5">
                     <div class="flex gap-4 p-4 border-l border-primary/30 bg-white/5"><span class="text-primary font-bold">01.</span><p class="text-on-surface-variant text-base md:text-lg" data-i18n="about_point_1">I work with you directly. You get my frameworks, my feedback, and my attention—built to get you a result.</p></div>
@@ -251,57 +248,82 @@
         </div>
     </section>
 
-    <!-- Works Scroll Stack -->
+    <!-- Portfolio Section - UPDATED PROJECT 3 LINK -->
     <section class="bg-surface py-20 md:py-32 px-6 md:px-12" id="work">
         <div class="max-w-7xl mx-auto">
             <div class="mb-12 md:mb-16 text-center md:text-left">
                 <p class="label-caps text-primary mb-4 text-xs md:text-sm font-bold uppercase" data-i18n="work_badge">Selected Portfolio</p>
-                <h2 class="serif-display text-4xl md:text-7xl font-bold uppercase text-white" data-i18n="work_title">our works</h2>
+                <h2 class="serif-display text-5xl md:text-8xl font-bold uppercase text-white tracking-tighter" data-i18n="work_title">our works</h2>
             </div>
             
             <div class="relative space-y-0 pb-10">
-                <div class="stack-card"><img src="https://raw.githubusercontent.com/Ak4432/visual-/refs/heads/main/Untitled%20design%20(6).png" class="w-full h-full object-cover opacity-90"/><div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent p-8 md:p-12 flex flex-col justify-end text-left"><p class="label-caps text-primary text-[10px] md:text-xs mb-2 font-bold uppercase" data-i18n="proj1_cat">Creative Direction</p><h5 class="serif-display text-2xl md:text-4xl text-white font-bold" data-i18n="proj1_title">Digital Marketing Boucher</h5></div></div>
-                <div class="stack-card"><img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover opacity-90"/><div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent p-8 md:p-12 flex flex-col justify-end text-left"><p class="label-caps text-primary text-[10px] md:text-xs mb-2 font-bold uppercase" data-i18n="proj2_cat">Post Production</p><h5 class="serif-display text-2xl md:text-4xl text-white font-bold" data-i18n="proj2_title">Visual Editing</h5></div></div>
-                <div class="stack-card"><img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover opacity-90"/><div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent p-8 md:p-12 flex flex-col justify-end text-left"><p class="label-caps text-primary text-[10px] md:text-xs mb-2 font-bold uppercase" data-i18n="proj3_cat">Brand Hub</p><h5 class="serif-display text-2xl md:text-4xl text-white font-bold" data-i18n="proj3_title">System Landing Page</h5></div></div>
-                <div class="stack-card"><img src="https://raw.githubusercontent.com/Ak4432/visual-/refs/heads/main/Untitled%20design%20(4).png" class="w-full h-full object-cover opacity-90"/><div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent p-8 md:p-12 flex flex-col justify-end text-left"><p class="label-caps text-primary text-[10px] md:text-xs mb-2 font-bold uppercase" data-i18n="proj4_cat">Executive Suite</p><h5 class="serif-display text-2xl md:text-4xl text-white font-bold" data-i18n="proj4_title">Board Presentation</h5></div></div>
+                <a href="https://raw.githubusercontent.com/Ak4432/visual-/refs/heads/main/Untitled%20design%20(6).png" target="_blank" class="stack-card">
+                    <img src="https://raw.githubusercontent.com/Ak4432/visual-/refs/heads/main/Untitled%20design%20(6).png" class="w-full h-full object-cover opacity-90"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent p-8 md:p-12 flex flex-col justify-end text-left">
+                        <p class="label-caps text-primary text-[10px] md:text-xs mb-2 font-bold uppercase" data-i18n="proj1_cat">Creative Direction</p>
+                        <h5 class="serif-display text-2xl md:text-5xl text-white font-bold" data-i18n="proj1_title">Digital Marketing Boucher</h5>
+                    </div>
+                </a>
+                <a href="https://ak4432.github.io/visuals-edit/" target="_blank" class="stack-card">
+                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover opacity-90"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent p-8 md:p-12 flex flex-col justify-end text-left">
+                        <p class="label-caps text-primary text-[10px] md:text-xs mb-2 font-bold uppercase" data-i18n="proj2_cat">Post Production</p>
+                        <h5 class="serif-display text-2xl md:text-4xl text-white font-bold" data-i18n="proj2_title">Visual Editing</h5>
+                    </div>
+                </a>
+                <!-- UPDATED LINK FOR BRAND HUB -->
+                <a href="https://ak4432.github.io/website-/" target="_blank" class="stack-card">
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover opacity-90"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent p-8 md:p-12 flex flex-col justify-end text-left">
+                        <p class="label-caps text-primary text-[10px] md:text-xs mb-2 font-bold uppercase" data-i18n="proj3_cat">Brand Hub</p>
+                        <h5 class="serif-display text-2xl md:text-5xl text-white font-bold" data-i18n="proj3_title">System Landing Page</h5>
+                    </div>
+                </a>
+                <a href="https://raw.githubusercontent.com/Ak4432/visual-/refs/heads/main/Untitled%20design%20(4).png" target="_blank" class="stack-card">
+                    <img src="https://raw.githubusercontent.com/Ak4432/visual-/refs/heads/main/Untitled%20design%20(4).png" class="w-full h-full object-cover opacity-90"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent p-8 md:p-12 flex flex-col justify-end text-left">
+                        <p class="label-caps text-primary text-[10px] md:text-xs mb-2 font-bold uppercase" data-i18n="proj4_cat">Executive Suite</p>
+                        <h5 class="serif-display text-2xl md:text-4xl text-white font-bold" data-i18n="proj4_title">Board Presentation</h5>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Reduced Growth Stack -->
+    <!-- Growth Stack Section -->
     <section class="py-20 md:py-32 bg-surface-container px-6" id="services">
         <div class="max-w-7xl mx-auto">
-            <div class="mb-12 text-center">
-                <p class="label-caps text-primary mb-4 text-xs tracking-[0.4em]" data-i18n="stack_badge">GROWTH STACK</p>
-                <h2 class="serif-display text-3xl md:text-5xl font-bold uppercase text-white mb-6" data-i18n="stack_title">Everything Your Business Needs to Grow</h2>
-                <p class="serif-display text-sm md:text-xl italic text-on-surface-variant max-w-2xl mx-auto" data-i18n="stack_subtitle">We know you've thought about it. It's time to make it happen.</p>
+            <div class="mb-12 text-center text-left">
+                <p class="label-caps text-primary mb-5 text-xs tracking-[0.4em]" data-i18n="stack_badge">GROWTH STACK</p>
+                <p class="serif-display text-sm md:text-2xl italic text-on-surface-variant max-w-2xl mx-auto mb-6" data-i18n="stack_subtitle">We know you've thought about it. It's time to make it happen.</p>
+                <h2 class="serif-display text-4xl md:text-6xl font-bold uppercase text-white mb-6 tracking-tight" data-i18n="stack_title">Everything Your Business Needs to Grow</h2>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-                <div class="service-square shadow-lg">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="service-square shadow-lg text-left">
                     <span class="material-symbols-outlined text-primary text-4xl mb-4">language</span>
-                    <h4 class="serif-display text-lg md:text-xl mb-6 font-bold text-white uppercase" data-i18n="stack_s1_title">Website Design</h4>
-                    <div class="flex flex-col gap-1 items-center">
+                    <h4 class="serif-display text-lg md:text-xl mb-6 font-bold text-white uppercase text-center" data-i18n="stack_s1_title">Website Design</h4>
+                    <div class="flex flex-col items-center">
                         <span class="service-tag" data-i18n="tag_landing">Landing Page</span><span class="service-tag" data-i18n="tag_biz">Business Website</span><span class="service-tag" data-i18n="tag_anim">Animation</span><span class="service-tag" data-i18n="tag_3d">3D Website</span><span class="service-tag" data-i18n="tag_uiux">UI/UX Design</span>
                     </div>
                 </div>
-                <div class="service-square shadow-lg">
+                <div class="service-square shadow-lg text-left">
                     <span class="material-symbols-outlined text-primary text-4xl mb-4">auto_fix_high</span>
-                    <h4 class="serif-display text-lg md:text-xl mb-6 font-bold text-white uppercase" data-i18n="stack_s2_title">Creative Design</h4>
-                    <div class="flex flex-col gap-1 items-center">
-                        <span class="service-tag" data-i18n="tag_graphic">Graphic Design</span><span class="service-tag" data-i18n="tag_boucher">Boucher</span><span class="service-tag" data-i18n="tag_card">Card</span><span class="service-tag" data-i18n="tag_menu">Menu</span><span class="service-tag" data-i18n="tag_flyer">Flyer</span>
+                    <h4 class="serif-display text-lg md:text-xl mb-6 font-bold text-white uppercase text-center" data-i18n="stack_s2_title">Creative Design</h4>
+                    <div class="flex flex-col items-center">
+                        <span class="service-tag" data-i18n="tag_graphic">Graphic Design</span><span class="service-tag" data-i18n="tag_boucher">Boucher</span><span class="service-tag" data-i18n="tag_card">Business Card</span><span class="service-tag" data-i18n="tag_menu">Menu</span><span class="service-tag" data-i18n="tag_flyer">Flyer</span>
                     </div>
                 </div>
-                <div class="service-square shadow-lg">
+                <div class="service-square shadow-lg text-left">
                     <span class="material-symbols-outlined text-primary text-4xl mb-4">movie_edit</span>
-                    <h4 class="serif-display text-lg md:text-xl mb-6 font-bold text-white uppercase" data-i18n="stack_s3_title">Visual Editing</h4>
-                    <div class="flex flex-col gap-1 items-center">
+                    <h4 class="serif-display text-lg md:text-xl mb-6 font-bold text-white uppercase text-center" data-i18n="stack_s3_title">Visual Editing</h4>
+                    <div class="flex flex-col items-center">
                         <span class="service-tag" data-i18n="tag_photos">photo’s</span><span class="service-tag" data-i18n="tag_videos">video's</span><span class="service-tag" data-i18n="tag_reels">social reels</span><span class="service-tag" data-i18n="tag_upscale">upscale</span><span class="service-tag" data-i18n="tag_color">colour edit</span>
                     </div>
                 </div>
-                <div class="service-square shadow-lg">
+                <div class="service-square shadow-lg text-left">
                     <span class="material-symbols-outlined text-primary text-4xl mb-4">present_to_all</span>
-                    <h4 class="serif-display text-lg md:text-xl mb-6 font-bold text-white uppercase" data-i18n="stack_s4_title">Presentation Design</h4>
-                    <div class="flex flex-col gap-1 items-center">
+                    <h4 class="serif-display text-lg md:text-xl mb-6 font-bold text-white uppercase text-center" data-i18n="stack_s4_title">Presentation Design</h4>
+                    <div class="flex flex-col items-center">
                         <span class="service-tag" data-i18n="tag_business">Business</span><span class="service-tag" data-i18n="tag_board">Board Meetings</span><span class="service-tag" data-i18n="tag_office">Office Meetings</span><span class="service-tag" data-i18n="tag_deck">Discussion Deck</span><span class="service-tag" data-i18n="tag_investor">Investor Deck</span>
                     </div>
                 </div>
@@ -309,11 +331,11 @@
         </div>
     </section>
 
-    <!-- Reviews Marquee -->
+    <!-- Reviews -->
     <section class="py-20 md:py-32 bg-[#0e0e0e] overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 mb-12 text-center md:text-left">
             <p class="label-caps text-primary mb-4 text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase" data-i18n="reviews_badge">PROOF OF EXCELLENCE</p>
-            <h2 class="serif-display text-3xl md:text-6xl font-bold text-white" data-i18n="reviews_title">From the Community reviews</h2>
+            <h2 class="serif-display text-3xl md:text-6xl font-bold text-white tracking-tight" data-i18n="reviews_title">From the Community reviews</h2>
         </div>
         <div class="review-track gap-5 px-4" id="reviewCarousel"></div>
     </section>
@@ -321,8 +343,8 @@
     <!-- Transform CTA -->
     <section class="relative py-24 md:py-48 px-6 text-center bg-black overflow-hidden">
         <div class="absolute inset-0 opacity-40 grayscale"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1600" class="w-full h-full object-cover"/></div>
-        <div class="relative z-10 w-full flex flex-col items-center">
-            <h2 class="serif-display text-3xl sm:text-5xl md:text-8xl font-bold leading-[1.1] text-white tracking-tight drop-shadow-2xl">
+        <div class="relative z-10 w-full flex flex-col items-center text-center">
+            <h2 class="serif-display text-4xl sm:text-6xl md:text-9xl font-bold leading-[1.1] text-white tracking-tight drop-shadow-2xl">
                 <span data-i18n="cta_title_1">Ready to Transform</span><br>
                 <span data-i18n="cta_title_2">Your Business in</span><br>
                 <span data-i18n="cta_title_3">premium and</span><br>
@@ -338,8 +360,8 @@
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 text-left">
             <div class="lg:col-span-4">
                 <p class="label-caps text-primary mb-3 text-xs uppercase" data-i18n="contact_badge">READY TO TRANSFORM?</p>
-                <h2 class="serif-display text-4xl font-bold mb-6 uppercase text-white" data-i18n="contact_title">Start Your Project</h2>
-                <p class="text-on-surface-variant text-base mb-8" data-i18n="contact_desc">Tell us about your business and what you're looking to achieve. We'll get back to you within 24 hours with a tailored plan.</p>
+                <h2 class="serif-display text-5xl md:text-8xl font-bold mb-6 uppercase text-white tracking-tighter" data-i18n="contact_title">Start Your Project</h2>
+                <p class="text-on-surface-variant text-base mb-8 leading-relaxed" data-i18n="contact_desc">Tell us about your business and what you're looking to achieve. We'll get back to you within 24 hours with a tailored plan.</p>
                 <div class="space-y-6">
                     <div class="flex items-center gap-4 group"><div class="w-10 h-10 border border-primary/20 flex items-center justify-center rounded-xl group-hover:bg-primary group-hover:text-black transition-colors"><span class="material-symbols-outlined text-xl">phone</span></div><div><p class="text-[9px] uppercase tracking-widest text-primary/60 mb-0.5" data-i18n="contact_phone_label">Direct Line</p><a href="tel:7498038027" class="text-xl text-white font-bold tracking-widest">7498038027</a></div></div>
                     <div class="flex items-center gap-4 group"><div class="w-10 h-10 border border-primary/20 flex items-center justify-center rounded-xl group-hover:bg-primary group-hover:text-black transition-colors"><span class="material-symbols-outlined text-xl">mail</span></div><div><p class="text-[9px] uppercase tracking-widest text-primary/60 mb-0.5" data-i18n="contact_email_label">Email</p><a href="mailto:alzafira225@gmail.com" class="text-lg text-white font-medium break-all">alzafira225@gmail.com</a></div></div>
@@ -348,13 +370,16 @@
             <div class="lg:col-span-8 form-border-glow shadow-3xl">
                 <div class="p-6 md:p-8 h-full w-full">
                     <form class="space-y-8" id="enquiryForm">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <input type="text" id="name" class="w-full bg-surface border border-white/10 p-3.5 focus:border-primary outline-none rounded-xl text-white text-sm" placeholder="Your Name" required />
-                            <input type="email" id="email" class="w-full bg-surface border border-white/10 p-3.5 focus:border-primary outline-none rounded-xl text-white text-sm" placeholder="Your Email" required />
+                        <div>
+                            <p class="label-caps text-primary text-[9px] font-bold mb-4 tracking-[0.2em] uppercase text-left" data-i18n="form_sec_1">PERSONAL DETAILS</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <input type="text" id="name" class="w-full bg-surface border border-white/10 p-3.5 focus:border-primary outline-none rounded-xl text-white text-sm" placeholder="Your Name" required />
+                                <input type="email" id="email" class="w-full bg-surface border border-white/10 p-3.5 focus:border-primary outline-none rounded-xl text-white text-sm" placeholder="Your Email" required />
+                            </div>
                         </div>
                         <div>
-                            <p class="label-caps text-primary text-[9px] font-bold mb-4 tracking-[0.2em] uppercase" data-i18n="form_sec_2">WHAT DO YOU NEED HELP WITH?</p>
-                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            <p class="label-caps text-primary text-[9px] font-bold mb-4 tracking-[0.2em] uppercase text-left" data-i18n="form_sec_2">WHAT DO YOU NEED HELP WITH?</p>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-left">
                                 <label class="flex items-center gap-2 cursor-pointer group"><input type="checkbox" name="service" value="Website Design" class="custom-checkbox"><span class="text-[10px] text-on-surface-variant group-hover:text-white" data-i18n="stack_s1_title">Website Design</span></label>
                                 <label class="flex items-center gap-2 cursor-pointer group"><input type="checkbox" name="service" value="Graphic Design" class="custom-checkbox"><span class="text-[10px] text-on-surface-variant group-hover:text-white" data-i18n="stack_s2_title">Creative Design</span></label>
                                 <label class="flex items-center gap-2 cursor-pointer group"><input type="checkbox" name="service" value="Visual Editing" class="custom-checkbox"><span class="text-[10px] text-on-surface-variant group-hover:text-white" data-i18n="stack_s3_title">Visual Editing</span></label>
@@ -362,10 +387,18 @@
                             </div>
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <select id="currency" onchange="updateBudgetOptions()" class="w-full bg-surface border border-white/10 p-3.5 focus:border-primary rounded-xl text-white appearance-none text-sm"><option value="INR">Rupees (₹)</option><option value="USD">Dollars ($)</option><option value="AED">AED (د.إ)</option></select>
-                            <select id="budget" class="w-full bg-surface border border-white/10 p-3.5 focus:border-primary rounded-xl text-white text-sm"></select>
+                            <div>
+                                <p class="label-caps text-primary text-[9px] font-bold mb-2 tracking-[0.2em] uppercase text-left" data-i18n="label_budget">BUDGET RANGE</p>
+                                <select id="currency" onchange="updateBudgetOptions()" class="w-full bg-surface border border-white/10 p-3.5 focus:border-primary rounded-xl text-white appearance-none text-sm"><option value="INR">Rupees (₹)</option><option value="USD">Dollars ($)</option><option value="AED">AED (د.إ)</option></select>
+                            </div>
+                            <div class="pt-6">
+                                <select id="budget" class="w-full bg-surface border border-white/10 p-3.5 focus:border-primary rounded-xl text-white text-sm"></select>
+                            </div>
                         </div>
-                        <textarea id="vision" class="w-full bg-surface border border-white/10 p-3.5 focus:border-primary outline-none rounded-xl text-white text-sm" rows="3" placeholder="Describe your vision"></textarea>
+                        <div>
+                            <p class="label-caps text-primary text-[9px] font-bold mb-2 tracking-[0.2em] uppercase text-left" data-i18n="label_vision">TELL US MORE</p>
+                            <textarea id="vision" class="w-full bg-surface border border-white/10 p-3.5 focus:border-primary outline-none rounded-xl text-white text-sm" rows="3" placeholder="Describe your vision"></textarea>
+                        </div>
                         <button type="button" onclick="sendToWhatsApp()" class="w-full gold-gradient text-on-primary py-4 font-bold uppercase tracking-widest rounded-xl shadow-xl hover:scale-[1.02] transition-transform text-[11px]" data-i18n="btn_send">SEND ENQUIRY</button>
                     </form>
                 </div>
@@ -374,15 +407,15 @@
     </section>
 </main>
 
-<footer class="bg-[#0a0a0a] py-20 px-6 md:px-12 border-t border-white/5 text-left">
+<footer class="bg-[#0a0a0a] py-20 px-6 md:px-12 border-t border-white/5 text-left text-left">
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
-        <div class="md:col-span-5">
+        <div class="md:col-span-5 text-left">
             <a href="#"><img src="https://res.cloudinary.com/dutt5ibzr/image/upload/v1776333065/tazzau7jsvjbqvsfext3.png" alt="Logo" class="h-8 md:h-10 w-auto mb-8"></a>
-            <p class="text-on-surface-variant text-sm leading-relaxed max-w-sm" data-i18n="footer_tag">One time build. Lifelong clarity.</p>
+            <p class="text-on-surface-variant text-sm leading-relaxed max-w-sm text-left" data-i18n="footer_tag">One time build. Lifelong clarity. Transform your business into a premium authority.</p>
         </div>
         <div class="md:col-span-3">
-            <p class="text-primary font-bold label-caps text-[10px] mb-8 uppercase" data-i18n="footer_links">Quick Links</p>
-            <ul class="space-y-4 text-sm text-on-surface-variant font-label">
+            <p class="text-primary font-bold label-caps text-[10px] mb-8 uppercase text-left" data-i18n="footer_links">Quick Links</p>
+            <ul class="space-y-4 text-sm text-on-surface-variant font-label text-left">
                 <li><a href="#" class="hover:text-white transition-colors" data-i18n="nav_home">Home</a></li>
                 <li><a href="#about" class="hover:text-white transition-colors" data-i18n="nav_about">About</a></li>
                 <li><a href="#work" class="hover:text-white transition-colors" data-i18n="nav_works">Our Works</a></li>
@@ -390,9 +423,9 @@
             </ul>
         </div>
         <div class="md:col-span-4 flex flex-col items-start md:items-end w-full">
-            <div class="follow-us-box w-full max-w-sm">
+            <div class="follow-us-box w-full max-w-sm text-left">
                 <p class="text-[#d0c5af] font-bold label-caps text-[10px] mb-6 uppercase text-left" data-i18n="footer_social">Follow Us</p>
-                <div class="flex gap-8">
+                <div class="flex gap-8 justify-start">
                     <a href="https://www.instagram.com/al_zafira4?igsh=eWU1YXpwMmhiaXB4" target="_blank" class="hover:scale-125 transition-transform"><img src="https://res.cloudinary.com/dutt5ibzr/image/upload/v1776331195/eywcsdomedoeuco2wz2z.png" class="w-8 h-8 object-contain"></a>
                     <a href="https://www.linkedin.com/in/aashik-i-876515401" target="_blank" class="hover:scale-125 transition-transform"><img src="https://res.cloudinary.com/dutt5ibzr/image/upload/v1776331196/obl0bsyr7tj6obr0lzah.png" class="w-6 h-6 object-contain"></a>
                     <a href="https://www.facebook.com/share/1CMEhMwuZp/" target="_blank" class="hover:scale-125 transition-transform"><img src="https://res.cloudinary.com/dutt5ibzr/image/upload/v1776331195/pso7ua8x0stjepotfvzl.png" class="w-6 h-6 object-contain"></a>
@@ -404,7 +437,20 @@
 </footer>
 
 <script>
-    // i18n Logic 100% Comprehensive
+    // Functions
+    function toggleBooking() {
+        const overlay = document.getElementById('booking-overlay');
+        overlay.classList.toggle('active');
+        document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : 'auto';
+    }
+
+    function toggleMobileMenu() {
+        const overlay = document.getElementById('mobile-overlay');
+        overlay.classList.toggle('active');
+        document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : 'auto';
+    }
+
+    // 100% Comprehensive Translations for All Target Languages
     const i18n = {
         en: {
             label: "Language", nav_home: "Home", nav_about: "About", nav_works: "Our Works", nav_services: "Growth Service", nav_contact: "Contact",
@@ -416,65 +462,86 @@
             work_badge: "Selected Portfolio", work_title: "our works", proj1_cat: "Creative Direction", proj1_title: "Digital Marketing Boucher", proj2_cat: "Post Production", proj2_title: "Visual Editing", proj3_cat: "Brand Hub", proj3_title: "System Landing Page", proj4_cat: "Executive Suite", proj4_title: "Board Presentation",
             stack_badge: "GROWTH STACK", stack_subtitle: "We know you've thought about it. It's time to make it happen.", stack_title: "Everything Your Business Needs to Grow",
             stack_s1_title: "Website Design", stack_s2_title: "Creative Design", stack_s3_title: "Visual Editing", stack_s4_title: "Presentation Design",
-            tag_landing: "Landing Page", tag_biz: "Business Website", tag_anim: "Animation", tag_3d: "3D Website", tag_uiux: "UI/UX Design",
-            tag_graphic: "Graphic Design", tag_boucher: "Boucher", tag_card: "Card", tag_menu: "Menu", tag_flyer: "Flyer",
-            tag_photos: "photo’s", tag_videos: "video's", tag_reels: "social reels", tag_upscale: "upscale", tag_color: "colour edit",
-            tag_business: "Business", tag_board: "Board Meetings", tag_office: "Office Meetings", tag_deck: "Discussion Deck", tag_investor: "Investor Deck",
+            tag_landing: "Landing Page", tag_biz: "Business Website", tag_anim: "Animation", tag_3d: "3D Website", tag_uiux: "UI/UX",
+            tag_graphic: "Graphic", tag_boucher: "Boucher", tag_card: "Card", tag_menu: "Menu", tag_flyer: "Flyer",
+            tag_photos: "photos", tag_videos: "videos", tag_reels: "social reels", tag_upscale: "upscale", tag_color: "color edit", tag_business: "Business", tag_board: "Board", tag_office: "Office", tag_deck: "Deck", tag_investor: "Investor",
             reviews_badge: "PROOF OF EXCELLENCE", reviews_title: "From the Community reviews",
             cta_title_1: "Ready to Transform", cta_title_2: "Your Business in", cta_title_3: "premium and", cta_title_4: "affordable?", cta_subtitle: "One time build. Lifelong clarity.",
             contact_badge: "READY TO TRANSFORM?", contact_title: "Start Your Project", contact_desc: "Tell us about your business and what you're looking to achieve. We'll get back to you within 24 hours with a tailored plan.",
-            form_sec_2: "WHAT DO YOU NEED HELP WITH?", contact_phone_label: "Direct Line", contact_email_label: "Email", btn_send: "SEND ENQUIRY", 
-            footer_tag: "One time build. Lifelong clarity. Transform your business into a premium authority.", footer_links: "QUICK LINKS", footer_social: "FOLLOW US", footer_copy: "© 2026 AL ZAFIRA. PREMIUM DIGITAL SOLUTIONS.",
+            form_sec_1: "PERSONAL DETAILS", form_sec_2: "WHAT DO YOU NEED HELP WITH?", label_name: "NAME", label_email: "EMAIL", label_curr: "CURRENCY", label_budget: "BUDGET RANGE", label_vision: "TELL US MORE", btn_send: "SEND ENQUIRY", 
+            footer_tag: "One time build. Lifelong clarity.", footer_links: "QUICK LINKS", footer_social: "FOLLOW US", footer_copy: "© 2026 AL ZAFIRA. PREMIUM DIGITAL SOLUTIONS.",
             profile_name: "Aashik", profile_title: "digital creator", profile_status: "Online", profile_contact: "Contact Me",
-            rev1: "AL ZAFIRA transformed our chaos into an empire.", rev2: "Pure sophistication in every pixel.", rev3: "The best strategic investment we made.", rev4: "Absolute clarity from day one.", rev5: "Truly in a league of their own.", rev6: "They build authority systems.", rev7: "Massive help for board presentations.", rev8: "Hire this team for premium results.",
-            booking_title: "Book Your Growth Call", booking_subtitle: "Transform your business in 30 min.", booking_cal: "Select on Calendar", booking_direct: "Or call us directly"
+            rev1: "Empire transformed.", rev2: "Sophistication.", rev3: "Best investment.", rev4: "Absolute clarity.", rev5: "League of their own.", rev6: "Authority built.", rev7: "Board help.", rev8: "Hire this team.",
+            booking_title: "Book Your Growth Call", booking_subtitle: "Transform your business in 30 min.", booking_cal: "Select on Calendar", booking_direct: "Or call us directly",
+            contact_phone_label: "Direct Line", contact_email_label: "Email"
         },
         ar: {
             label: "اللغة", nav_home: "الرئيسية", nav_about: "من نحن", nav_works: "أعمالنا", nav_services: "الخدمات", nav_contact: "اتصل بنا", hero_badge: "حلول أعمال بنيت لتدوم", hero_title: "ثبت علامتك التجارية الشخصية ونظام المحتوى الخاص بك", hero_subtitle: "حيث تتحول العلامات التجارية العادية إلى المستوى الأعلى",
-            btn_growth: "احجز مكالمة نمو", btn_portfolio: "عرض المعرض", about_greeting: "مرحبا بك!", about_title_pre: "إليك ما ستحصل عليه داخل", about_desc: "نحن نحل تحديات النمو بدقة إبداعية.", 
-            work_badge: "أعمال مختارة", work_title: "أعمالنا", proj1_cat: "الاتجاه الإبداعي", proj1_title: "التسويق الرقمي", proj2_cat: "ما بعد الإنتاج", proj2_title: "التحرير البصري", proj3_cat: "مركز العلامة", proj3_title: "صفحة الهبوط", proj4_cat: "جناح التنفيذيين", proj4_title: "عرض مجلس الإدارة",
+            btn_growth: "احجز مكالمة نمو", about_greeting: "مرحبا بك!", about_title_pre: "إليك ما ستحصل عليه داخل", about_desc: "نحن نحل تحديات النمو بدقة إبداعية.", work_title: "أعمالنا", 
+            proj1_cat: "الاتجاه الإبداعي", proj1_title: "التسويق الرقمي", proj2_cat: "ما بعد الإنتاج", proj2_title: "التحرير البصري", proj3_cat: "مركز العلامة", proj3_title: "صفحة الهبوط النظامية", proj4_cat: "جناح التنفيذيين", proj4_title: "عرض مجلس الإدارة",
             stack_badge: "حزمة النمو", stack_subtitle: "نعلم أنك فكرت في الأمر. حان وقت التنفيذ.", stack_title: "كل ما يحتاجه عملك للنمو", 
             stack_s1_title: "تصميم المواقع", stack_s2_title: "التصميم الإبداعي", stack_s3_title: "التحرير البصري", stack_s4_title: "تصميم العروض",
-            tag_landing: "صفحة هبوط", tag_biz: "موقع أعمال", tag_anim: "رسوم متحركة", tag_3d: "موقع ثلاثي", tag_uiux: "واجهة المستخدم", tag_graphic: "جرافيك", tag_boucher: "بروشور", tag_card: "بطاقة عمل", tag_menu: "قائمة طعام", tag_flyer: "منشور", tag_photos: "صور", tag_videos: "فيديو", tag_reels: "فيديوهات قصيرة", tag_upscale: "تحسين الجودة", tag_color: "تعديل الألوان", tag_business: "أعمال", tag_board: "مجلس الإدارة", tag_office: "مكتبية", tag_deck: "عرض نقاش", tag_investor: "مستثمر",
+            tag_landing: "صفحة هبوط", tag_biz: "موقع أعمال", tag_anim: "رسوم متحركة", tag_3d: "موقع ثلاثي", tag_uiux: "واجهة المستخدم",
+            tag_graphic: "جرافيك", tag_boucher: "بروشور", tag_card: "بطاقة عمل", tag_menu: "قائمة طعام", tag_flyer: "منشور",
+            tag_photos: "صور", tag_videos: "فيديو", tag_reels: "فيديوهات قصيرة", tag_upscale: "تحسين الجودة", tag_color: "تعديل الألوان",
+            tag_business: "أعمال", tag_board: "مجلس الإدارة", tag_office: "مكتبية", tag_deck: "عرض نقاش", tag_investor: "مستثمر",
             reviews_badge: "دليل التميز", reviews_title: "من مراجعات المجتمع",
             cta_title_1: "جاهز للتحويل", cta_title_2: "عملك إلى", cta_title_3: "مستوى فاخر", cta_title_4: "وبأسعار معقولة؟", cta_subtitle: "بناء لمرة واحدة. وضوح مدى الحياة.",
             contact_badge: "جاهز للتحول؟", contact_title: "ابدأ مشروعك", contact_desc: "أخبرنا عن عملك وما تتطلع لتحقيقه. سنرد عليك في غضون 24 ساعة بخطة مخصصة.",
-            form_sec_2: "كيف يمكننا مساعدتك؟", label_name: "الاسم", label_email: "الايميل", btn_send: "إرسال الاستفسار", footer_tag: "بناء لمرة واحدة. وضوح مدى الحياة.", footer_links: "روابط سريعة", footer_social: "تابعنا", footer_copy: "© 2026 AL ZAFIRA.",
+            form_sec_1: "البيانات الشخصية", form_sec_2: "كيف يمكننا مساعدتك؟", 
+            about_point_1: "أعمل معك مباشرة. ستحصل على أطري وملاحظاتي واهتمامي — بنيت لتحقق لك نتيجة.",
+            about_point_2: "أقدم حلولاً رقمية من الدرجة الأولى مصممة خصيصاً لتناسب جمهورك المستهدف من الدرجة الأولى.",
+            label_name: "الاسم", label_email: "الايميل", label_curr: "العملة", label_budget: "نطاق الميزانية", label_vision: "أخبرنا المزيد", btn_send: "إرسال الاستفسار", footer_tag: "بناء لمرة واحدة. وضوح مدى الحياة.",
             profile_name: "عاشق", profile_title: "صانع محتوى رقمي", profile_status: "نشط", profile_contact: "تواصل معي",
-            booking_title: "احجز مكالمة نمو", booking_subtitle: "حول عملك في 30 دقيقة.", booking_cal: "اختر من التقويم", booking_direct: "أو اتصل بنا مباشرة"
+            rev1: "حولت محتوانا إلى إمبراطورية سينمائية.", booking_title: "احجز مكالمة نمو", booking_subtitle: "حول عملك في 30 دقيقة.", booking_cal: "اختر من التقويم", booking_direct: "أو اتصل بنا مباشرة",
+            contact_phone_label: "الخط المباشر", contact_email_label: "بريد"
         },
         ta: { 
             label: "மொழி", nav_home: "முகப்பு", nav_about: "பற்றி", nav_works: "பணிகள்", nav_services: "சேவை", nav_contact: "தொடர்பு", 
             hero_badge: "வணிக தீர்வுகள்", hero_title: "உங்கள் பிரீமியம் பிராண்டை நிறுவுங்கள்", hero_subtitle: "சாதாரண பிராண்டுகள் உயர்தரமாகும் இடம்",
-            btn_growth: "பதிவு செய்யுங்கள்", btn_portfolio: "பார்க்கவும்", about_greeting: "வணக்கம்!", about_title_pre: "AL ZAFIRA-க்குள் நீங்கள் பெறுவது", about_desc: "நாங்கள் வணிக வளர்ச்சியை ஆக்கபூர்வமான துல்லியத்துடன் தீர்க்கிறோம்.", 
-            work_badge: "தேர்ந்தெடுக்கப்பட்டவை", work_title: "எங்கள் பணிகள்", 
-            proj1_cat: "கிரியேட்டிவ்", proj1_title: "டிஜிட்டல் மார்க்கெட்டிங்", proj2_cat: "தயாரிப்பு", proj2_title: "விஷுவல் எடிட்டிங்", proj3_cat: "பிராண்ட்", proj3_title: "லேண்டிங் பேஜ்", proj4_cat: "போர்டு", proj4_title: "பிரசன்டேஷன்",
-            stack_badge: "வளர்ச்சி அடுக்கு", stack_subtitle: "இதைச் செய்ய வேண்டிய நேரம் வந்துவிட்டது.", stack_title: "வணிக வளர்ச்சிக்கு அனைத்தும்",
-            stack_s1_title: "வலைத்தள வடிவமைப்பு", stack_s2_title: "கிரியேட்டிவ்", stack_s3_title: "எடிட்டிங்", stack_s4_title: "பிரசன்டேஷன்",
-            tag_landing: "லேண்டிங் பேஜ்", tag_biz: "வணிக வலைத்தளம்", tag_anim: "அனிமேஷன்", tag_3d: "3D வலைத்தளம்", tag_uiux: "UI/UX", tag_graphic: "கிராஃபிக்", tag_boucher: "பவுச்சர்", tag_card: "கார்டு", tag_menu: "மெனு", tag_flyer: "பிளையர்", tag_photos: "புகைப்படங்கள்", tag_videos: "வீடியோக்கள்", tag_reels: "ரீல்ஸ்", tag_upscale: "மேம்படுத்துதல்", tag_color: "கலர் எடிட்", tag_business: "வணிகம்", tag_board: "போர்டு மீட்டிங்", tag_office: "அலுவலகம்", tag_deck: "டெக்", tag_investor: "இன்வெஸ்டர்",
-            reviews_badge: "சான்று", reviews_title: "மக்களின் கருத்துக்கள்",
-            cta_title_1: "உங்கள் வணிகத்தை", cta_title_2: "உயர்தர மற்றும்", cta_title_3: "மலிவு விலையில்", cta_title_4: "மாற்ற தயாரா?", cta_subtitle: "வாழ்நாள் தெளிவு.",
-            contact_badge: "தயாரா?", contact_title: "தொடங்குங்கள்", contact_desc: "உங்கள் வணிகத்தைப் பற்றி எங்களிடம் கூறுங்கள். 24 மணி நேரத்திற்குள் பதிலளிப்போம்.",
-            form_sec_2: "உங்களுக்கு என்ன உதவி தேவை?", label_name: "பெயர்", label_email: "மின்னஞ்சல்", btn_send: "அனுப்பவும்", footer_copy: "© 2026 AL ZAFIRA.",
+            btn_growth: "பதிவு செய்யுங்கள்", about_greeting: "வணக்கம்!", about_title_pre: "AL ZAFIRA-க்குள் நீங்கள் பெறுவது", work_title: "எங்கள் பணிகள்", reviews_title: "மக்களின் கருத்துக்கள்", stack_badge: "வளர்ச்சி அடுக்கு", stack_subtitle: "இதைச் செய்ய வேண்டிய நேரம் வந்துவிட்டது.", stack_title: "வணிக வளர்ச்சிக்கு அனைத்தும்",
+            stack_s1_title: "வலைத்தளம்", stack_s2_title: "கிரியேட்டிவ்", stack_s3_title: "எடிட்டிங்", stack_s4_title: "பிரசன்டேஷன்",
+            tag_landing: "லேண்டிங் பேஜ்", tag_biz: "வணிக வலைத்தளம்", tag_anim: "அனிமேஷன்", tag_3d: "3D வலைத்தளம்", tag_uiux: "UI/UX",
+            tag_graphic: "கிராஃபிக்", tag_boucher: "பவுச்சர்", tag_card: "கார்டு", tag_menu: "மெனு", tag_flyer: "பிளையர்",
+            tag_photos: "புகைப்படங்கள்", tag_videos: "வீடியோக்கள்", tag_reels: "ரீல்ஸ்", tag_upscale: "மேம்படுத்துதல்", tag_color: "கலர் எடிட்",
+            form_sec_1: "தனிப்பட்ட விவரங்கள்", form_sec_2: "உங்களுக்கு என்ன உதவி தேவை?", 
+            about_point_1: "நான் உங்களுடன் நேரடியாகப் பணியாற்றுகிறேன். எனது கட்டமைப்புகள், கருத்துக்கள் மற்றும் கவனிப்பைப் பெறுவீர்கள் — முடிவைப் பெறுவதற்காக உருவாக்கப்பட்டது.",
+            about_point_2: "உங்கள் இலக்கு பார்வையாளர்களை கவரும் வகையில் வடிவமைக்கப்பட்ட உயர்தர டிஜிட்டல் தீர்வுகளை நான் வழங்குகிறேன்.",
+            label_name: "பெயர்", label_email: "மின்னஞ்சல்", label_curr: "நாணயம்", label_budget: "பட்ஜெட் வரம்பு", label_vision: "மேலும் கூறுங்கள்", btn_send: "அனுப்பவும்", footer_copy: "© 2026 AL ZAFIRA.",
             profile_name: "ஆஷிக்", profile_title: "டிஜிட்டல் படைப்பாளி", profile_status: "ஆன்லைனில்", profile_contact: "தொடர்பு கொள்க",
-            booking_title: "அழைப்பை பதிவு செய்யுங்கள்", booking_cal: "காலெண்டரில் தேர்ந்தெடுக்கவும்", booking_direct: "அல்லது நேரடியாக அழைக்கவும்"
+            rev1: "வணிகத்தை அருமையாக மாற்றினார்கள்.", booking_title: "அழைப்பை பதிவு செய்யுங்கள்", booking_cal: "காலெண்டரில் தேர்ந்தெடுக்கவும்",
+            contact_phone_label: "நேரடி எண்", contact_email_label: "மின்னஞ்சல்"
         },
         hi: { 
-            label: "भाषा", nav_home: "होम", nav_about: "बारे में", nav_works: "हमारे कार्य", nav_services: "ग्रोथ सर्विस", nav_contact: "संपर्क", 
-            hero_badge: "व्यापार समाधान", hero_title: "अपना प्रीमियम पर्सनल ब्रांड स्थापित करें", hero_subtitle: "जहाँ सामान्य ब्रांड टॉप टियर बन जाते हैं",
-            btn_growth: "कॉल बुक करें", btn_portfolio: "पोर्टफोलियो देखें", about_greeting: "नमस्ते!", about_title_pre: "AL ZAFIRA के अंदर आपको क्या मिलता है", about_desc: "हम रचनात्मक सटीकता के साथ डिजिटल चुनौतियों का समाधान करते हैं.",
-            work_badge: "चुनिंदा कार्य", work_title: "हमारे काम", 
-            proj1_cat: "क्रिएटिव", proj1_title: "डिजिटल मार्केटिंग", proj2_cat: "प्रोडक्शन", proj2_title: "विजुअल एडिटिंग", proj3_cat: "ब्रांड हब", proj3_title: "लैंडिंग पेज", proj4_cat: "एग्जीक्यूटिव", proj4_title: "बोर्ड प्रेजेंटेशन",
-            stack_badge: "ग्रोथ स्टैक", stack_subtitle: "इसे करने का समय आ गया है।", stack_title: "व्यापार वृद्धि के लिए सब कुछ",
+            label: "भाषा", nav_home: "होम", nav_about: "बारे में", nav_works: "हमारे कार्य", nav_services: "सेवा", nav_contact: "संपर्क", 
+            hero_badge: "व्यापार समाधान", hero_title: "अपना प्रीमियम ब्रांड स्थापित करें", hero_subtitle: "जहाँ सामान्य ब्रांड टॉप टियर बन जाते हैं",
+            btn_growth: "कॉल बुक करें", about_greeting: "नमस्ते!", about_title_pre: "AL ZAFIRA के अंदर आपको क्या मिलता है", work_title: "हमारे काम", reviews_title: "सामुदायिक समीक्षाएँ", stack_badge: "ग्रोथ स्टैक", stack_subtitle: "इसे करने का समय आ गया है।", stack_title: "व्यापार वृद्धि के लिए सब कुछ",
             stack_s1_title: "वेबसाइट डिजाइन", stack_s2_title: "क्रिएटिव डिजाइन", stack_s3_title: "विजुअल एडिटिंग", stack_s4_title: "प्रेजेंटेशन डिजाइन",
-            tag_landing: "लैंडिंग पेज", tag_biz: "बिज़नेस वेबसाइट", tag_anim: "एनिमेशन", tag_3d: "3D वेबसाइट", tag_uiux: "UI/UX", tag_graphic: "ग्राफिक", tag_boucher: "वाउचर", tag_card: "कार्ड", tag_menu: "मेनू", tag_flyer: "फ्लायर", tag_photos: "फोटो", tag_videos: "वीडियो", tag_reels: "रील्स", tag_upscale: "अपस्केल", tag_color: "कलर एडिट", tag_business: "बिज़नेस", tag_board: "बोर्ड मीटिंग", tag_office: "ऑफिस मीटिंग", tag_deck: "डेक", tag_investor: "इन्वेस्टर",
-            reviews_badge: "प्रमाण", reviews_title: "सामुदायिक समीक्षाएँ",
-            cta_title_1: "व्यवसाय को", cta_title_2: "प्रीमियम और किफायती", cta_title_3: "बनाने के लिए", cta_title_4: "तैयार हैं?", cta_subtitle: "एक बार का निर्माण। आजीवन स्पष्टता।",
-            contact_badge: "तैयार हैं?", contact_title: "प्रोजेक्ट शुरू करें", contact_desc: "हमें अपने व्यवसाय के बारे में बताएं। हम 24 घंटों में संपर्क करेंगे।",
-            form_sec_2: "आपको किसमें सहायता चाहिए?", label_name: "नाम", label_email: "ईमेल", btn_send: "भेजें", footer_copy: "© 2026 AL ZAFIRA.",
+            tag_landing: "लैंडिंग पेज", tag_biz: "बिज़नेस वेबसाइट", tag_anim: "एनिमेशन", tag_3d: "3D वेबसाइट", tag_uiux: "UI/UX",
+            tag_graphic: "ग्राफिक", tag_boucher: "वाउचर", tag_card: "कार्ड", tag_menu: "मेनू", tag_flyer: "फ्लायर",
+            tag_photos: "फोटो", tag_videos: "वीडियो", tag_reels: "रील्स", tag_upscale: "अपस्केल", tag_color: "कलर एडिट",
+            form_sec_1: "व्यक्तिगत विवरण", form_sec_2: "सहायता चाहिए?", 
+            about_point_1: "मैं सीधे आपके साथ काम करता हूँ। आपको मेरे फ्रेमवर्क, फीडबैक और मेरा पूरा ध्यान मिलेगा — परिणाम पाने के लिए निर्मित।",
+            about_point_2: "मैं टॉप टियर डिजिटल समाधान प्रदान करता हूँ जो विशेष रूप से आपके लक्षित दर्शकों के साथ तालमेल बिठाने के लिए डिज़ाइन किए गए हैं।",
+            label_name: "नाम", label_email: "ईमेल", label_curr: "मुद्रा", label_budget: "बजट रेंज", label_vision: "हमें और बताएं", btn_send: "भेजें", footer_copy: "© 2026 AL ZAFIRA.",
             profile_name: "आशिक", profile_title: "डिजिटल क्रिएटर", profile_status: "ऑनलाइन", profile_contact: "संपर्क करें",
-            booking_title: "ग्रोث कॉल बुक करें", booking_cal: "कैलेंडर पर चुनें", booking_direct: "या हमें सीधे कॉल करें"
+            rev1: "काम में बड़ा बदलाव आया।", booking_title: "ग्रोथ कॉल बुक करें", booking_cal: "कैलेंडर पर चुनें",
+            contact_phone_label: "डायरेक्ट नंबर", contact_email_label: "ईमेल"
         }
+    };
+
+    const budgetData = {
+      en: { INR: ["Under ₹5,000", "₹5,000 – ₹15,000", "₹15,000 – ₹50,000", "₹50,000+"], USD: ["Under $100", "$100 – $500", "$500 – $2,000", "$2,000+"], AED: ["Under 500 د.إ", "500 – 2,000 د.إ", "2,000 – 7,000 د.إ", "7,000+ د.إ"] },
+      ar: { INR: ["أقل من ₹5,000", "₹5,000 – ₹15,000", "₹15,000 – ₹50,000", "₹50,000+"], USD: ["أقل من $100", "$100 – $500", "$500 – $2,000", "$2,000+"], AED: ["أقل من 500 د.إ", "500 – 2,000 د.إ", "2,000 – 7,000 د.إ", "7,000+ د.إ"] },
+      ta: { INR: ["₹5,000 க்குள்", "₹5,000 – ₹15,000", "₹15,000 – ₹50,000", "₹50,000+"], USD: ["$100 க்குள்", "$100 – $500", "$500 – $2,000", "$2,000+"], AED: ["500 د.إ க்குள்", "500 – 2,000 த.இ.", "2,000 – 7,000 த.இ.", "7,000+ த.இ."] },
+      hi: { INR: ["₹5,000 से कम", "₹5,000 – ₹15,000", "₹15,000 – ₹50,000", "₹50,000+"], USD: ["$100 से कम", "$100 – $500", "$500 – $2,000", "$2,000+"], AED: ["500 द.इ. से कम", "500 – 2,000 ड.इ.", "2,000 – 7,000 ड.इ.", "7,000+ से अधिक"] }
+    };
+
+    const placeholders = {
+      en: { name: "Your Name", email: "Your Email", vision: "Describe your vision" },
+      ar: { name: "الاسم", email: "البريد الإلكتروني", vision: "اشرح رؤيتك" },
+      ta: { name: "உங்கள் பெயர்", email: "மின்னஞ்சல்", vision: "உங்கள் நோக்கத்தை விளக்குங்கள்" },
+      hi: { name: "आपका नाम", email: "ईमेल", vision: "अपनी योजना बताएं" }
     };
 
     const reviewList = [
@@ -488,44 +555,38 @@
         { name: "AMARA OKAFOR", role: "Creative Lead", img: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce", revId: "rev8" }
     ];
 
-    const budgetTiers = {
-        INR: ["Under ₹5,000", "₹5,000 – ₹15,000", "₹15,000 – ₹50,000", "₹50,000+"],
-        USD: ["Under $100", "$100 – $500", "$500 – $2,000", "$2,000+"],
-        AED: ["Under 500 د.إ", "500 – 2,000 د.إ", "2,000 – 7,000 د.إ", "7,000+ د.إ"]
-    };
-
-    function toggleBooking() {
-        const overlay = document.getElementById('booking-overlay');
-        overlay.classList.toggle('active');
-        document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : 'auto';
-    }
-
-    function toggleMobileMenu() {
-        const overlay = document.getElementById('mobile-overlay');
-        overlay.classList.toggle('active');
-        document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : 'auto';
+    function autoDetectLanguage() {
+        const savedLang = localStorage.getItem('lang');
+        if (savedLang && i18n[savedLang]) { changeLanguage(savedLang); return; }
+        let lang = navigator.language || navigator.userLanguage;
+        lang = lang.toLowerCase();
+        if (lang.startsWith('ar')) lang = 'ar';
+        else if (lang.startsWith('ta')) lang = 'ta';
+        else if (lang.startsWith('hi')) lang = 'hi';
+        else lang = 'en';
+        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+        if (tz.includes('Dubai') || tz.includes('Riyadh') || tz.includes('Kuwait') || tz.includes('Qatar')) { lang = 'ar'; }
+        changeLanguage(lang);
+        localStorage.setItem('lang', lang);
     }
 
     function changeLanguage(lang) {
+        localStorage.setItem('lang', lang);
         document.documentElement.lang = lang;
-        document.body.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+        document.body.dir = (lang === "ar") ? "rtl" : "ltr";
         const trans = i18n[lang] || i18n.en;
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
-            if (trans[key]) el.innerHTML = trans[key]; 
+            if (trans[key]) el.innerHTML = trans[key];
             else if (i18n.en[key]) el.innerHTML = i18n.en[key];
         });
         document.getElementById('currentLangLabel').innerText = trans.label || "Language";
-        
-        const nameInput = document.getElementById('name');
-        const emailInput = document.getElementById('email');
-        const visionInput = document.getElementById('vision');
-        if (nameInput) nameInput.placeholder = lang === 'ar' ? 'الاسم' : 'Your Name';
-        if (emailInput) emailInput.placeholder = lang === 'ar' ? 'الايميل' : 'Your Email';
-        if (visionInput) visionInput.placeholder = lang === 'ar' ? 'أخبرنا برؤيتك' : 'Describe your vision';
-
+        const p = placeholders[lang] || placeholders.en;
+        if (document.getElementById('name')) document.getElementById('name').placeholder = p.name;
+        if (document.getElementById('email')) document.getElementById('email').placeholder = p.email;
+        if (document.getElementById('vision')) document.getElementById('vision').placeholder = p.vision;
         renderReviews(lang);
-        updateBudgetOptions();
+        updateBudgetOptions(lang);
         initPillNav(); 
     }
 
@@ -547,55 +608,34 @@
         `).join('');
     }
 
-    function updateBudgetOptions() {
+    function updateBudgetOptions(lang = 'en') {
         const currency = document.getElementById('currency').value;
         const budgetSelect = document.getElementById('budget');
         if (!budgetSelect) return;
-        const options = budgetTiers[currency];
+        const options = (budgetData[lang] || budgetData.en)[currency];
         budgetSelect.innerHTML = options.map(opt => `<option value="${opt}">${opt}</option>`).join('');
     }
 
     function sendToWhatsApp() {
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const budget = document.getElementById('budget').value;
-        const vision = document.getElementById('vision').value;
+        const name = document.getElementById('name').value, email = document.getElementById('email').value, budget = document.getElementById('budget').value, vision = document.getElementById('vision').value;
         const selectedServices = Array.from(document.querySelectorAll('input[name="service"]:checked')).map(cb => cb.value);
         if(!name || !email) return alert("Please fill in your name and email.");
-        const servicesText = selectedServices.length > 0 ? selectedServices.join(', ') : 'None specified';
-        const text = `Hi AL ZAFIRA! I'm ${name}.\n\nServices Needed: ${servicesText}\nBudget: ${budget}\nEmail: ${email}\n\nVision: ${vision}`;
+        const text = `Hi AL ZAFIRA! I'm ${name}.\n\nServices: ${selectedServices.join(', ') || 'General'}\nBudget: ${budget}\nEmail: ${email}\n\nVision: ${vision}`;
         window.open(`https://wa.me/917498038027?text=${encodeURIComponent(text)}`, '_blank');
     }
 
     function initPillNav() {
-        const container = document.getElementById('pillNav');
-        const pill = document.getElementById('navPillBg');
+        const container = document.getElementById('pillNav'), pill = document.getElementById('navPillBg');
         if (!container || !pill) return;
         const links = container.querySelectorAll('.pill-nav-link');
-        function updatePill(target) {
-            pill.style.opacity = '1';
-            pill.style.width = `${target.offsetWidth}px`;
-            pill.style.left = `${target.offsetLeft}px`;
-        }
-        links.forEach(link => {
-            link.addEventListener('mouseenter', (e) => updatePill(e.target));
-            link.addEventListener('click', (e) => {
-                links.forEach(l => l.classList.remove('active'));
-                e.target.classList.add('active');
-            });
-        });
-        container.addEventListener('mouseleave', () => {
-            const activeLink = container.querySelector('.pill-nav-link.active');
-            if (activeLink) updatePill(activeLink);
-            else pill.style.opacity = '0';
-        });
-        const initialActive = container.querySelector('.pill-nav-link.active');
-        if (initialActive) updatePill(initialActive);
+        function updatePill(target) { pill.style.opacity = '1'; pill.style.width = `${target.offsetWidth}px`; pill.style.left = `${target.offsetLeft}px`; }
+        links.forEach(link => { link.addEventListener('mouseenter', (e) => updatePill(e.target)); link.addEventListener('click', (e) => { links.forEach(l => l.classList.remove('active')); e.target.classList.add('active'); }); });
+        container.addEventListener('mouseleave', () => { const activeLink = container.querySelector('.pill-nav-link.active'); if (activeLink) updatePill(activeLink); else pill.style.opacity = '0'; });
+        const initialActive = container.querySelector('.pill-nav-link.active'); if (initialActive) updatePill(initialActive);
     }
 
     function initProfileCard() {
-        const card = document.getElementById('profileCard');
-        const glare = document.getElementById('cardGlare');
+        const card = document.getElementById('profileCard'), glare = document.getElementById('cardGlare');
         if (!card) return;
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
@@ -605,15 +645,12 @@
             glare.style.opacity = '1';
             glare.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.15) 0%, transparent 80%)`;
         });
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
-            glare.style.opacity = '0';
-        });
+        card.addEventListener('mouseleave', () => { card.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`; glare.style.opacity = '0'; });
     }
 
     window.onload = function() {
+        autoDetectLanguage();
         renderReviews('en');
-        updateBudgetOptions();
         initPillNav();
         initProfileCard();
         
